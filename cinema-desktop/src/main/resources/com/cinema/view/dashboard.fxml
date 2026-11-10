@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.cinema.controller.DashboardController" styleClass="root-pane">
+ <left><VBox spacing="18" prefWidth="255" styleClass="sidebar">
+  <Label text="CINEMA" styleClass="brand"/><Label text="TICKET BOOKING" styleClass="muted"/><Label fx:id="screenTitle" text="MENU" styleClass="section-title"/>
+  <Separator/><Button fx:id="cinemaNavButton" text="Cinema Management" onAction="#openCinemaManagement" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="roomNavButton" text="Room Management" onAction="#openRoomManagement" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="showtimeNavButton" text="Showtime Management" onAction="#openShowtimeManagement" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="seatNavButton" text="Seat Management" onAction="#openSeatManagement" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="selectSeatNavButton" text="Select Seats" onAction="#openSeatSelection" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="bookingsNavButton" text="My Bookings" onAction="#openBookings" maxWidth="Infinity" styleClass="nav-button"/><Button fx:id="customerNavButton" text="Customer Management" onAction="#openCustomerManagement" maxWidth="Infinity" styleClass="nav-button"/><Label text="Movie Management" styleClass="side-label"/>
+  <Button text="View Movies" onAction="#refreshMovies" maxWidth="Infinity" styleClass="nav-button"/>
+  <Region VBox.vgrow="ALWAYS"/><Button text="Change Password" onAction="#changePassword" maxWidth="Infinity" styleClass="nav-button"/><Button text="Logout" onAction="#logout" maxWidth="Infinity" styleClass="nav-button"/>
+ </VBox></left>
+ <center><VBox spacing="18" styleClass="content">
+  <HBox alignment="CENTER_LEFT"><Label text="Movie Catalog" styleClass="headline"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="greeting" styleClass="muted"/></HBox>
+  <HBox styleClass="content-card" alignment="CENTER_LEFT" spacing="12"><Label text="OVERVIEW" styleClass="section-title"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="dashboardStats" text="" styleClass="muted"/></HBox><Label text="Discover movies and manage the cinema catalog" styleClass="muted"/>
+  <HBox spacing="12"><Button fx:id="addMovieButton" text="+ Add Movie" onAction="#addMovie" styleClass="primary-button"/><Button fx:id="deleteMovieButton" text="Delete Selected" onAction="#deleteMovie" styleClass="nav-button"/><Button text="Refresh" onAction="#refreshMovies" styleClass="nav-button"/></HBox>
+  <TableView fx:id="movieTable" VBox.vgrow="ALWAYS"><columns>
+   <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+   <TableColumn fx:id="titleColumn" text="Movie Title" prefWidth="190"/>
+   <TableColumn fx:id="durationColumn" text="Minutes" prefWidth="85"/>
+   <TableColumn fx:id="genreColumn" text="Genre" prefWidth="125"/>
+   <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="260"/>
+  </columns></TableView>
+ </VBox></center>
+</BorderPane>
