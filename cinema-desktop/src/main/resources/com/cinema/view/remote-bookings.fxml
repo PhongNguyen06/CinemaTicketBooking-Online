@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.cinema.controller.RemoteBookingsController" styleClass="app-root">
+ <top>
+  <VBox spacing="12" styleClass="customer-panel">
+   <Label fx:id="greeting" styleClass="customer-subtitle"/>
+   <Label fx:id="pageTitle" text="My Bookings" styleClass="customer-title"/>
+   <HBox spacing="10">
+    <Button text="Refresh" onAction="#refresh" styleClass="customer-action"/>
+    <Button text="Cancel Selected" onAction="#cancelSelected" styleClass="customer-danger"/>
+    <Button text="Back" onAction="#backToDashboard" styleClass="customer-action"/>
+   </HBox>
+  </VBox>
+ </top>
+ <center>
+  <VBox spacing="12" styleClass="customer-workspace">
+   <VBox VBox.vgrow="ALWAYS" spacing="8">
+    <Label text="Booking history" styleClass="section-title"/>
+    <TableView fx:id="bookingsTable" VBox.vgrow="ALWAYS" styleClass="customer-table">
+     <placeholder><Label text="No bookings found"/></placeholder>
+     <columns>
+      <TableColumn fx:id="idCol" text="ID" prefWidth="70"/>
+      <TableColumn fx:id="dateCol" text="Date / Time" prefWidth="210"/>
+      <TableColumn fx:id="customerCol" text="Customer" prefWidth="180"/>
+      <TableColumn fx:id="statusCol" text="Status" prefWidth="125"/>
+      <TableColumn fx:id="totalCol" text="Total VND" prefWidth="130"/>
+     </columns>
+    </TableView>
+   </VBox>
+   <VBox spacing="8" prefHeight="190" minHeight="130">
+    <Label text="Tickets in selected booking" styleClass="section-title"/>
+    <ListView fx:id="ticketList" VBox.vgrow="ALWAYS" styleClass="customer-list"><placeholder><Label text="Select a booking above to view its tickets"/></placeholder></ListView>
+   </VBox>
+  </VBox>
+ </center>
+</BorderPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.cinema.controller.SeatController" styleClass="root-pane">
+ <left><VBox spacing="16" prefWidth="230" styleClass="sidebar">
+  <Label text="CINEMA" styleClass="brand"/><Label text="ADMIN MENU" styleClass="section-title"/><Separator/>
+  <Button text="Back to Dashboard" onAction="#backToDashboard" maxWidth="Infinity" styleClass="nav-button"/><Label text="Seat Management" styleClass="side-label"/>
+ </VBox></left>
+ <center><VBox spacing="18" styleClass="content">
+  <HBox alignment="CENTER_LEFT"><Label text="Seat Management" styleClass="headline"/><Region HBox.hgrow="ALWAYS"/><Label fx:id="greeting" styleClass="muted"/></HBox>
+  <Label text="Assign seats to rooms. Seat IDs are generated automatically. Changes are saved to seats.csv." styleClass="muted"/>
+  <HBox spacing="10"><Label text="Room:" styleClass="muted"/><ComboBox fx:id="roomFilter" promptText="All rooms" prefWidth="340" onAction="#refreshSeats"/><Button text="Refresh" onAction="#refreshSeats" styleClass="nav-button"/></HBox>
+  <HBox spacing="12"><Button text="+ Add Seat" onAction="#addSeat" styleClass="primary-button"/><Button text="Edit Selected" onAction="#editSeat" styleClass="nav-button"/><Button text="Delete Selected" onAction="#deleteSeat" styleClass="nav-button"/></HBox>
+  <TableView fx:id="seatTable" VBox.vgrow="ALWAYS"><columns>
+   <TableColumn fx:id="idColumn" text="ID" prefWidth="85"/>
+   <TableColumn fx:id="rowColumn" text="Row" prefWidth="120"/>
+   <TableColumn fx:id="numberColumn" text="Number" prefWidth="130"/>
+   <TableColumn fx:id="typeColumn" text="Seat Type" prefWidth="160"/>
+   <TableColumn fx:id="roomColumn" text="Room / Cinema" prefWidth="350"/>
+  </columns></TableView>
+ </VBox></center>
+</BorderPane>

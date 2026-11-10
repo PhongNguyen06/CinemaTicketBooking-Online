@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.cinema.controller.CinemaController" styleClass="root-pane">
+    <left>
+        <VBox spacing="16" prefWidth="230" styleClass="sidebar">
+            <Label text="CINEMA" styleClass="brand"/>
+            <Label text="ADMIN MENU" styleClass="section-title"/>
+            <Separator/>
+            <Button text="← Back to Dashboard" onAction="#backToDashboard" maxWidth="Infinity" styleClass="nav-button"/>
+            <Label text="Cinema Management" styleClass="side-label"/>
+        </VBox>
+    </left>
+    <center>
+        <VBox spacing="18" styleClass="content">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label text="Cinema Management" styleClass="headline"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="greeting" styleClass="muted"/>
+            </HBox>
+            <Label text="Manage existing cinema records from cinemas.csv" styleClass="muted"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="searchType" prefWidth="115"/>
+                <TextField fx:id="searchField" promptText="Search cinema..." HBox.hgrow="ALWAYS" onAction="#searchCinemas"/>
+                <Button text="Search" onAction="#searchCinemas" styleClass="nav-button"/>
+                <Button text="Show All" onAction="#refreshCinemas" styleClass="nav-button"/>
+            </HBox>
+            <HBox spacing="12">
+                <Button text="+ Add Cinema" onAction="#addCinema" styleClass="primary-button"/>
+                <Button text="Edit Selected" onAction="#editCinema" styleClass="nav-button"/>
+                <Button text="Delete Selected" onAction="#deleteCinema" styleClass="nav-button"/>
+            </HBox>
+            <TableView fx:id="cinemaTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" prefWidth="80"/>
+                    <TableColumn fx:id="nameColumn" text="Cinema Name" prefWidth="300"/>
+                    <TableColumn fx:id="addressColumn" text="Address" prefWidth="400"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

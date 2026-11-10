@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.cinema.controller.RemoteSeatSelectionController" styleClass="app-root">
+ <top>
+  <VBox spacing="12" styleClass="customer-panel">
+   <Label fx:id="greeting" styleClass="customer-subtitle"/>
+   <Label text="Choose your seats" styleClass="customer-title"/>
+   <HBox spacing="12" alignment="CENTER_LEFT">
+    <Label text="Showtime:"/>
+    <ComboBox fx:id="showtimeCombo" prefWidth="680" maxWidth="700" HBox.hgrow="ALWAYS" onAction="#refresh"/>
+    <Button text="Refresh" onAction="#refresh" styleClass="customer-action"/>
+   </HBox>
+   <Label fx:id="infoLabel" text="" styleClass="customer-subtitle"/>
+  </VBox>
+ </top>
+ <center>
+  <VBox spacing="18" styleClass="customer-seat-area" alignment="TOP_CENTER">
+   <HBox alignment="CENTER"><Label text="SCREEN" styleClass="screen-bar" minWidth="450" alignment="CENTER"/></HBox>
+   <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="customer-scroll">
+    <content>
+     <FlowPane fx:id="seatsPane" hgap="12" vgap="12" prefWrapLength="760" alignment="TOP_CENTER" styleClass="customer-seat-area">
+      <padding><Insets top="20" right="16" bottom="16" left="16"/></padding>
+     </FlowPane>
+    </content>
+   </ScrollPane>
+   <HBox spacing="22" alignment="CENTER" styleClass="customer-legend">
+    <HBox spacing="7" alignment="CENTER_LEFT">
+     <Region styleClass="legend-dot-available"/>
+     <Label text="Available" styleClass="legend-text"/>
+    </HBox>
+    <HBox spacing="7" alignment="CENTER_LEFT">
+     <Region styleClass="legend-dot-vip"/>
+     <Label text="VIP" styleClass="legend-text"/>
+    </HBox>
+    <HBox spacing="7" alignment="CENTER_LEFT">
+     <Region styleClass="legend-dot-booked"/>
+     <Label text="Booked" styleClass="legend-text"/>
+    </HBox>
+    <HBox spacing="7" alignment="CENTER_LEFT">
+     <Region styleClass="legend-dot-selected"/>
+     <Label text="Selected" styleClass="legend-text"/>
+    </HBox>
+   </HBox>
+  </VBox>
+ </center>
+ <bottom>
+  <VBox spacing="10" styleClass="customer-footer">
+   <Label fx:id="selectionLabel" text="Selected seats: 0"/>
+   <Label fx:id="totalLabel" text="Estimated total: 0 VND" styleClass="section-title"/>
+   <HBox spacing="12"><Button text="Confirm Booking" onAction="#confirmBooking" styleClass="customer-accent"/><Button text="Back" onAction="#backToDashboard" styleClass="customer-action"/></HBox>
+  </VBox>
+ </bottom>
+</BorderPane>
